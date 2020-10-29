@@ -4,7 +4,7 @@ This repository contains exercises related to the [Serenity Dojo](https://www.se
 
 ## Exercise 1
 
-Refactor the "Search by keyword" scenarion in [search_for_product.feature](src/test/resources/features/etsy/search_for_product.feature) so that it checks for several keywords, and not just "Mask".
+Refactor the "Search by keyword" scenarion in [search_for_product.feature](src/test/resources/features/etsy/search_for_product.feature) so that it checks for "mask" and "belt", and not just "Mask".
 
 ## Executing the tests
 To run the sample project, you can either just run the `CucumberTestSuite` test runner class, or run either `mvn verify` or `gradle test` from the command line.
