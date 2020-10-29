@@ -4,7 +4,6 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import net.serenitybdd.screenplay.Actor;
-import org.assertj.core.api.Assertions;
 import starter.navigation.NavigateTo;
 import starter.search.DisplayedItems;
 import starter.search.SearchForProducts;
@@ -28,14 +27,21 @@ public class SearchByKeywordStepDefinitions {
         );
     }
 
+
     @Then("{actor} should only be shown products related to {string}")
     public void shouldSeeProductsAbout(Actor actor, String keyword) {
+
         List<String> displayedDescriptions =
                 actor.asksFor(DisplayedItems.descriptions());
 
         assertThat(displayedDescriptions).allMatch(
-                description -> description.toLowerCase()
-                                          .contains(keyword.toLowerCase())
+                description -> description.toLowerCase().contains(keyword.toLowerCase())
         );
+
+        assertThat(displayedDescriptions).satisfies(
+                descriptions ->
+                        assertThat(descriptions.stream().anyMatch(description -> description.toLowerCase().contains(keyword.toLowerCase())))
+        );
+
     }
 }

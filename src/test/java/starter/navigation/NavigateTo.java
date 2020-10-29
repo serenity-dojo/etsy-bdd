@@ -2,10 +2,11 @@ package starter.navigation;
 
 import net.serenitybdd.screenplay.Performable;
 import net.serenitybdd.screenplay.Task;
-import net.serenitybdd.screenplay.actions.Click;
+import net.serenitybdd.screenplay.actions.DoubleClick;
 import net.serenitybdd.screenplay.actions.Open;
-import net.serenitybdd.screenplay.matchers.WebElementStateMatchers;
 import net.serenitybdd.screenplay.waits.WaitUntil;
+
+import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isClickable;
 
 public class NavigateTo {
     public static Performable theWikipediaHomePage() {
@@ -16,7 +17,8 @@ public class NavigateTo {
     public static Performable toEtsySearchPage() {
         return Task.where("{0} opens the Etsy home page",
                 Open.url("https://www.etsy.com/"),
-                Click.on(CookieDialog.ACCEPT_BUTTON)
+                WaitUntil.the(CookieDialog.ACCEPT_BUTTON, isClickable()),
+                DoubleClick.on(CookieDialog.ACCEPT_BUTTON)
         );
     }
 }
