@@ -6,11 +6,6 @@ import net.serenitybdd.screenplay.actions.DoubleClick;
 import net.serenitybdd.screenplay.actions.Open;
 
 public class NavigateTo {
-    public static Performable theWikipediaHomePage() {
-        return Task.where("{0} opens the Wikipedia home page",
-                Open.browserOn().the(WikipediaHomePage.class));
-    }
-
     public static Performable toEtsySearchPage() {
         return Task.where("{0} opens the Etsy home page",
                 Open.url("https://www.etsy.com/"),
