@@ -1,4 +1,4 @@
-package starter.stepdefinitions;
+package com.serenitydojo.etsy.stepdefinitions;
 
 import io.cucumber.java.Before;
 import net.serenitybdd.screenplay.actors.OnStage;

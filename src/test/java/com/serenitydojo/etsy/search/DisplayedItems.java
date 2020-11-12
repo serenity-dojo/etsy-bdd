@@ -1,4 +1,4 @@
-package starter.search;
+package com.serenitydojo.etsy.search;
 
 import net.serenitybdd.screenplay.Question;
 import net.serenitybdd.screenplay.questions.Text;

@@ -1,15 +1,13 @@
-package starter.stepdefinitions;
+package com.serenitydojo.etsy.stepdefinitions;
 
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import net.serenitybdd.screenplay.Actor;
-import org.assertj.core.api.Assertions;
-import starter.navigation.NavigateTo;
-import starter.search.DisplayedItems;
-import starter.search.SearchForProducts;
-import starter.viewitem.ListedItemDetails;
-import starter.viewitem.ViewItemDetails;
+import com.serenitydojo.etsy.navigation.Navigate;
+import com.serenitydojo.etsy.search.DisplayedItems;
+import com.serenitydojo.etsy.search.SearchForProducts;
+import com.serenitydojo.etsy.viewitem.ViewItemDetails;
 
 import java.util.List;
 
@@ -19,7 +17,7 @@ public class SearchByKeywordStepDefinitions {
     @Given("{actor} is looking for products on Esty")
     public void lookingForProductsOnEtsy(Actor actor) {
         actor.attemptsTo(
-                NavigateTo.toEtsySearchPage()
+                Navigate.toTheHomePage()
         );
     }
 
@@ -44,7 +42,7 @@ public class SearchByKeywordStepDefinitions {
     @Given("{actor} has performed a search for {string}")
     public void hasPerformedASearchFor(Actor actor, String keyword) {
         actor.attemptsTo(
-            NavigateTo.toEtsySearchPage(),
+            Navigate.toTheHomePage(),
             SearchForProducts.withKeyword(keyword)
         );
     }
@@ -52,9 +50,7 @@ public class SearchByKeywordStepDefinitions {
     @When("{actor} views the details for the first listed item")
     public void viewsTheDetailsForTheFirstListedItem(Actor actor) {
         actor.attemptsTo(
-                ViewItemDetails.forItemNumber(1)
+                ViewItemDetails.forOneOfTheDisplayedItems()
         );
-        //String listedItem = actor.asksFor(ListedItemDetails.title());
-        //System.out.println(listedItem);
     }
 }

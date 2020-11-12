@@ -1,4 +1,4 @@
-package starter.viewitem;
+package com.serenitydojo.etsy.viewitem;
 
 import net.serenitybdd.screenplay.Question;
 import net.serenitybdd.screenplay.questions.Text;

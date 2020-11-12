@@ -1,4 +1,4 @@
-package starter.viewitem;
+package com.serenitydojo.etsy.viewitem;
 
 import org.openqa.selenium.By;
 
