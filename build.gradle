@@ -46,7 +46,9 @@ dependencies {
 
 test {
     testLogging.showStandardStreams = true
-    systemProperties System.getProperties()
+    options {
+        systemProperties(System.getProperties())
+    }
 }
 
 gradle.startParameter.continueOnFailure = true

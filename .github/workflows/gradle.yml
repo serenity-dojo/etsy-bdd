@@ -25,4 +25,4 @@ jobs:
         chmod +x ./scripts/InstallChrome.sh
          ./scripts/InstallChrome.sh
     - name: Build with Gradle
-      run: gradle clean test -Pheadless.mode=true
+      run: gradle clean test -Dheadless.mode=true
