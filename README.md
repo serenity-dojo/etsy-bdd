@@ -4,7 +4,22 @@ This repository contains exercises related to the [Serenity Dojo](https://www.se
 
 ## Exercise 1
 
-Refactor the "Search by keyword" scenarion in [search_for_product.feature](src/test/resources/features/etsy/search_for_product.feature) so that it checks for "mask" and "belt", and not just "Mask".
+Refactor the "Search by keyword" scenarion in [search_for_product.feature](src/test/resources/features/etsy/search_for_product.feature) so that it checks for "mask" and "watch", and not just "Mask".
+
+## Exercise 2
+
+Add a scenario to show that the shopping basket should be empty. Do this by creating a new feature file, `shopping_basket.feature`, with a scenario like the following:
+
+```gherkin
+Feature: Adding items to the shopping basket
+
+  Scenario: The shopping basked is initially empty
+    Given Sharon is looking for products on Esty
+    When she views her shopping basket
+    Then the basket should be empty
+```
+
+You can do this by completing the prepared step definition methods using the [Navigate](src/test/java/com/serenitydojo/etsy/navigation/Navigate.java) task class.
 
 ## Executing the tests
 To run the sample project, you can either just run the `CucumberTestSuite` test runner class, or run either `mvn verify` or `gradle test` from the command line.

@@ -1,5 +1,6 @@
 package com.serenitydojo.etsy.stepdefinitions;
 
+import com.serenitydojo.etsy.basket.ShoppingBasket;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -8,9 +9,12 @@ import com.serenitydojo.etsy.navigation.Navigate;
 import com.serenitydojo.etsy.search.DisplayedItems;
 import com.serenitydojo.etsy.search.SearchForProducts;
 import com.serenitydojo.etsy.viewitem.ViewItemDetails;
+import net.serenitybdd.screenplay.actors.OnStage;
+import net.serenitybdd.screenplay.ensure.Ensure;
 
 import java.util.List;
 
+import static net.serenitybdd.screenplay.actors.OnStage.theActorInTheSpotlight;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class SearchByKeywordStepDefinitions {
@@ -51,6 +55,21 @@ public class SearchByKeywordStepDefinitions {
     public void viewsTheDetailsForTheFirstListedItem(Actor actor) {
         actor.attemptsTo(
                 ViewItemDetails.forOneOfTheDisplayedItems()
+        );
+    }
+
+    @When("{actor} views her shopping basket")
+    public void sheViewsHerShoppingBasket(Actor actor) {
+        actor.attemptsTo(
+                Navigate.toTheShoppingBasket()
+        );
+
+    }
+
+    @Then("the basket should be empty")
+    public void theBasketShouldBeEmpty() {
+        theActorInTheSpotlight().attemptsTo(
+                Ensure.that(ShoppingBasket.CONTENT).textContent().contains("Your basket is empty.")
         );
     }
 }
