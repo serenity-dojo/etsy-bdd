@@ -1,13 +1,9 @@
 Feature: Search for product
 
-  Scenario Outline: Search by keyword
+  Scenario: Search by keyword
     Given Sharon is looking for products on Esty
-    When she searches for "<keyword>"
-    Then she should only be shown products related to "<keyword>"
-    Examples:
-      | keyword |
-      | mask    |
-      | watch   |
+    When she searches for "mask"
+    Then she should only be shown products related to "mask"
 
   Scenario: Display product details
     Given Sharon has performed a search for "mask"

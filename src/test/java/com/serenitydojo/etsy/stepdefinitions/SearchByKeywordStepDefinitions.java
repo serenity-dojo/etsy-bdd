@@ -60,10 +60,7 @@ public class SearchByKeywordStepDefinitions {
 
     @When("{actor} views her shopping basket")
     public void sheViewsHerShoppingBasket(Actor actor) {
-        actor.attemptsTo(
-                Navigate.toTheShoppingBasket()
-        );
-
+        // TODO: Finish me
     }
 
     @Then("the basket should be empty")
