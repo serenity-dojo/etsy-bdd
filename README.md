@@ -21,6 +21,10 @@ Feature: Adding items to the shopping basket
 
 You can do this by completing the prepared step definition methods using the [Navigate](src/test/java/com/serenitydojo/etsy/navigation/Navigate.java) task class.
 
+## Exercise 3
+
+Complete the implementation of the "the correct details for the listed item should be displayed" step so that it checks not only the title but also the price. The `ListingCard` class now records the price on the search results page - add an assertion to make sure that this price appears somewhere in the price section of the details page.
+
 ## Executing the tests
 To run the sample project, you can either just run the `CucumberTestSuite` test runner class, or run either `mvn verify` or `gradle test` from the command line.
 
