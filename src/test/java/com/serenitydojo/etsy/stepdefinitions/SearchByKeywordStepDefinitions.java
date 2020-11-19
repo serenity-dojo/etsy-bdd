@@ -68,8 +68,8 @@ public class SearchByKeywordStepDefinitions {
         ListingCard selectedItemDetails = actor.recall("SELECTED_ITEM");
 
         actor.should(
-                seeThat(the(ItemDetailsPage.ITEM_TITLE), containsText(selectedItemDetails.getTitle()))
-                // TODO: Check that the price is also correctly displayed
+                seeThat(the(ItemDetailsPage.ITEM_TITLE), containsText(selectedItemDetails.getTitle())),
+                seeThat(the(ItemDetailsPage.ITEM_PRICE), containsText(selectedItemDetails.getPrice()))
         );
     }
 
