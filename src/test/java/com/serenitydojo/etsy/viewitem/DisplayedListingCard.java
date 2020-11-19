@@ -15,6 +15,7 @@ public class DisplayedListingCard {
                                     .map(element ->
                                             new ListingCard(
                                                     element.getAttribute("title"),
+                                                    element.findBy(".currency-value").getText(),
                                                     element.getAttribute("data-listing-id")
                                             )
                                     )

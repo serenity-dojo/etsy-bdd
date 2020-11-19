@@ -1,10 +1,10 @@
 package com.serenitydojo.etsy.viewitem;
 
+import com.serenitydojo.etsy.navigation.Navigate;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Performable;
 import net.serenitybdd.screenplay.actions.Click;
 import net.serenitybdd.screenplay.targets.Target;
-import org.openqa.selenium.By;
 
 import java.util.List;
 
@@ -22,11 +22,11 @@ public class ViewItemDetails implements Performable {
     public <T extends Actor> void performAs(T actor) {
         List<ListingCard> listingCards = actor.asksFor(DisplayedListingCard.details());
         ListingCard selectedItem = randomItemFrom(listingCards);
-        System.out.println("SELECTED TITLE = " + selectedItem.getTitle());
         actor.remember("SELECTED_ITEM", selectedItem);
 
         actor.attemptsTo(
-                Click.on(LISTING_CARD.of(selectedItem.getDataListingId()))
+                Click.on(LISTING_CARD.of(selectedItem.getDataListingId())),
+                Navigate.toTheOtherTab()
         );
     }
 
